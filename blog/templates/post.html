@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title%} {{post.title}} {% endblock%}
+
+{% block content %}
+
+<div class="row">
+    <img src="{{post.image.url}} " class="responsive-img" style="height: 400px; width: 100%;" alt="">
+    <div class="col s12 m8">
+
+        <h3>{{post.title}}</h3>
+
+        <span>{{post.category.title}}</span>
+
+        <p>{{post.content|safe}}</p>
+
+    </div>
+    <div class="col s12 m4">
+        <h3>Related Post</h3>
+        {% for i in related_posts %}
+            <a href="/post/{{i.id}}/">{{i.title}}</a>
+            <hr>
+        {% endfor %}
+
+        <h3>Categories</h3>
+        {% for i in categories %}
+            <a href="/category/{{i.id}}/">{{i.title}}</a>
+            <hr>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

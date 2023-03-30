@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title%} Contact US {% endblock%}
+
+{% block content %}
+
+<div class="container">
+    <h3 class="text-center">Contact Us</h3>
+    <p class="text-center">Do you have a question, comment, or suggestion for us? Please fill out the form below and we'll get back to you as soon as possible.</p>
+    
+    <form method="POST" action="">
+        {% csrf_token %}
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" name="name" type="text" class="validate" required>
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" name="email" type="email" class="validate" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="message" name="message" class="materialize-textarea" required></textarea>
+          <label for="message">Message</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light bg-primary " style="margin-bottom: 20px;" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+{% endblock %}

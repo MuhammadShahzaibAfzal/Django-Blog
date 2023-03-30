@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block title %}Welcome to iBLOG {% endblock %} 
+
+
+<div class="container">
+  {% block content %}
+<div class="text-center" style="padding: 20px;">
+  <h3 style="font-family: cursive;">Welcome to iBLOG</h3>
+  <div class="text-center">
+    Welcome to iBlog, your go-to destination for sports,educations and
+    entertainement. Our mission is to provide high-quality content that informs,
+    inspires, and engages our readers. At iBlog we are passionate about
+    Sports,Techonlogy,Programming and Polictics and we are committed to sharing
+    our knowledge and expertise with you.
+  </div>
+</div>
+
+<!-- section of category  -->
+<div class="owl-carousel">
+    {% for i in categories %}
+    <div class="card" style="margin-left: 10px;">
+        <div class="card-image">
+          <img src="{{i.image.url}}">
+        </div>
+        <div class="card-content" style="text-align: center;">
+          <span class="card-title">{{i.title}}</span>
+          <a href="/category/{{i.id}}/" class="waves-effect waves-light btn bg-primary">View</a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<!-- section of recents ports -->
+
+
+<h3 class="text-center">Recent Posts</h3>
+
+<div class="row">
+  {% for post in posts %}
+  <div class="col s12 m6 l4">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{ post.image.url }}" />
+        <span class="card-title">{{ post.title }}</span>
+      </div>
+      <div class="card-content">
+        <p>{{ post.content|truncatechars:220|safe }}</p>
+      </div>
+      <div class="card-action">
+        <a href="/post/{{post.id}}/">Read More</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}
+
+</div>

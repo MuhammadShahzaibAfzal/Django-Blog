@@ -1,0 +1,24 @@
+structure of django project
+
+    venv -- > virtual env : manage python library
+
+    iblog - > project
+        iblog -> app
+            settings.py ---> settings of django project. i.e phone setting wallpaper change etc.
+        another app --> app
+
+        manage.py -- > python file used to interaction with django. kuch be interaction karna ha woh hum manage.py ki help se kare ge..
+                        i.e run project 
+
+
+two parts
+    -user
+    -admin
+
+Entity : Category,Post
+
+
+data store and manage karne keleya hum models ko use kare ge.
+
+
+sqlite online for check db.sqlite3 file

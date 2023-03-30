@@ -1,0 +1,33 @@
+<!-- Drop Down Structure -->
+<ul id="dropdown1" class="dropdown-content"  style="width: 500px !important">
+  {% for i in categories %}
+  <li><a href="/category/{{i.id}}/">{{i.title}}</a></li>
+  {% endfor %}
+</ul>
+
+<nav class="bg-primary">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">iBLOG</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+        ><i class="material-icons">menu</i></a
+      >
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <!-- Drop Down Trigger -->
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" >Category<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="/">Home</a></li>
+  <!-- <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li> -->
+  <li><a href="/posts/">Posts</a></li>
+  <li><a href="/about-us/">About Us</a></li>
+  <li><a href="/contact-us/">Contact Us</a></li>
+</ul>

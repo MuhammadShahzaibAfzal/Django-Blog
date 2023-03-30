@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block title %}Welcome to iBLOG {% endblock %}
+
+<div class="container">
+  {% block content %}
+
+  <!-- section of recents ports -->
+
+  <h3 class="text-center">All Posts</h3>
+
+  <nav class="bg-primary container" style="margin: 20px auto">
+    <div class="nav-wrapper">
+      <form method="GET" action="">
+        <div class="input-field">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search Post by title or category"
+            name="searchtext"
+          />
+          <label class="label-icon" for="search"
+            ><i class="material-icons">search</i></label
+          >
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+
+  <div class="row container">
+    {% for post in page_obj %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ post.image.url }}" />
+          <span class="card-title">{{ post.title }}</span>
+        </div>
+        <div class="card-content">
+          <p>{{ post.content|truncatechars:220|safe }}</p>
+        </div>
+        <div class="card-action">
+          <a href="/post/{{post.id}}/">Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <ul class="pagination text-center">
+    
+    {% if page_obj.has_previous %}
+    <li class="">
+        <a href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a>
+    </li>
+    {% endif %}
+    <li class="waves-effect"><a href="?page=1">First</a></li>
+    <li class=""><a href="?page=1">1</a></li>
+    <li class="waves-effect"><a href="?page=2">2</a></li>
+    
+    <li class="waves-effect  bg-primary text-lighten-1 " ><a href="#" style="color: white !important;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a></li>
+    <li class="waves-effect"><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+
+    {% if page_obj.has_next %}
+    <li class="waves-effect">
+        <a href="?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a>
+      </li>
+    {% endif %}
+    
+  </ul>
+
+  {% endblock %}
+</div>
